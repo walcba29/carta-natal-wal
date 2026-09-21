@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#111827">
+<title>Carta Natal Wal</title>
+<style>
+:root{--bg:#0b1020;--card:#151d31;--card2:#1b2640;--text:#f5f7fb;--muted:#aeb8ca;--gold:#d8b36a;--gold2:#f0d59c;--border:rgba(255,255,255,.1)}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif;background:radial-gradient(circle at top,#202b49 0,var(--bg) 52%);color:var(--text)}
+.app{width:min(680px,100%);margin:auto;padding:28px 18px 40px}.hero{display:flex;align-items:center;gap:14px;padding:12px 4px 26px}
+.mark{width:48px;height:48px;display:grid;place-items:center;border:1px solid #8e7444;border-radius:16px;color:var(--gold2);font-size:25px;background:#d8b36a14}
+h1{margin:0 0 4px;font-size:27px}h2{margin:0 0 8px;font-size:23px}h3{margin:0 0 8px;font-size:19px}p{line-height:1.5}.muted{color:var(--muted)}
+.card{background:#151d31f2;border:1px solid var(--border);border-radius:24px;padding:22px;box-shadow:0 18px 50px #0004}
+label{display:block;color:#dfe5ef;font-size:14px;margin-bottom:16px}input{width:100%;margin-top:8px;padding:14px 15px;border:1px solid var(--border);border-radius:13px;background:#0f1628;color:var(--text);font-size:16px;outline:none}input:focus{border-color:#d8b36ab3}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}button{width:100%;border:0;border-radius:14px;padding:15px 18px;background:linear-gradient(135deg,var(--gold2),var(--gold));color:#17120a;font-weight:700;font-size:16px}
+.hidden{display:none}.title{display:flex;align-items:center;justify-content:space-between;gap:14px}.secondary{width:auto;padding:10px 14px;background:var(--card2);color:var(--text);border:1px solid var(--border);font-size:14px}
+.data{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:22px 0}.data>div{padding:13px;border-radius:14px;background:#10182b;border:1px solid var(--border)}.data span{display:block;color:var(--muted);font-size:11px;margin-bottom:5px}.data strong{font-size:14px;overflow-wrap:anywhere}
+.coming{text-align:center;padding:28px 12px 12px;border-top:1px solid var(--border)}.sun{font-size:42px;color:var(--gold2);margin-bottom:10px}footer{text-align:center;color:#7f8ba0;font-size:12px;padding:22px 0 4px}
+@media(max-width:520px){.grid,.data{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<main class="app">
+<header class="hero"><div class="mark">✦</div><div><h1>Carta Natal Wal</h1><p class="muted">Tu espacio para crear y guardar cartas natales.</p></div></header>
+
+<section class="card" id="formCard">
+<h2>Nueva consulta</h2><p class="muted">Cargá los datos de nacimiento para comenzar.</p>
+<form id="form">
+<label>Nombre<input id="name" required placeholder="Nombre y apellido"></label>
+<div class="grid">
+<label>Fecha de nacimiento<input id="date" type="date" required></label>
+<label>Hora<input id="time" type="time" required></label>
+</div>
+<label>Lugar de nacimiento<input id="place" required placeholder="Ciudad, provincia, país"></label>
+<button>Continuar</button>
+</form>
+</section>
+
+<section class="card hidden" id="result">
+<div class="title"><div><small class="muted">CONSULTA</small><h2 id="rname"></h2></div><button class="secondary" id="new">Nueva</button></div>
+<div class="data"><div><span>Fecha</span><strong id="rdate"></strong></div><div><span>Hora</span><strong id="rtime"></strong></div><div><span>Lugar</span><strong id="rplace"></strong></div></div>
+<div class="coming"><div class="sun">☉</div><h3>Base de la carta lista</h3><p class="muted">El próximo paso será incorporar el cálculo astronómico real: planetas, Ascendente, casas, aspectos y el gráfico.</p></div>
+</section>
+<footer>© Carta Natal Wal</footer>
+</main>
+<script>
+const form=document.querySelector("#form"), formCard=document.querySelector("#formCard"), result=document.querySelector("#result");
+const fmt=v=>{if(!v)return"";const [y,m,d]=v.split("-");return d+"/"+m+"/"+y};
+form.addEventListener("submit",e=>{e.preventDefault();const d={name:name.value.trim(),date:date.value,time:time.value,place:place.value.trim()};localStorage.setItem("cartaNatalWal",JSON.stringify(d));rname.textContent=d.name;rdate.textContent=fmt(d.date);rtime.textContent=d.time;rplace.textContent=d.place;formCard.classList.add("hidden");result.classList.remove("hidden");scrollTo({top:0,behavior:"smooth"})});
+document.querySelector("#new").onclick=()=>{result.classList.add("hidden");formCard.classList.remove("hidden");form.reset();};
+const saved=localStorage.getItem("cartaNatalWal"); if(saved){const d=JSON.parse(saved);name.value=d.name||"";date.value=d.date||"";time.value=d.time||"";place.value=d.place||"";}
+</script>
+</body>
+</html>
