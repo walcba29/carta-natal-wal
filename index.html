@@ -6,50 +6,55 @@
 <meta name="theme-color" content="#111827">
 <title>Carta Natal Wal</title>
 <style>
-:root{--bg:#0b1020;--card:#151d31;--card2:#1b2640;--text:#f5f7fb;--muted:#aeb8ca;--gold:#d8b36a;--gold2:#f0d59c;--border:rgba(255,255,255,.1)}
+:root{--bg:#0b1020;--card:#151d31f2;--card2:#1b2640;--text:#f5f7fb;--muted:#aeb8ca;--gold:#d8b36a;--gold2:#f0d59c;--border:rgba(255,255,255,.1);--ok:#9bd7b0}
 *{box-sizing:border-box}body{margin:0;min-height:100vh;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif;background:radial-gradient(circle at top,#202b49 0,var(--bg) 52%);color:var(--text)}
-.app{width:min(680px,100%);margin:auto;padding:28px 18px 40px}.hero{display:flex;align-items:center;gap:14px;padding:12px 4px 26px}
-.mark{width:48px;height:48px;display:grid;place-items:center;border:1px solid #8e7444;border-radius:16px;color:var(--gold2);font-size:25px;background:#d8b36a14}
-h1{margin:0 0 4px;font-size:27px}h2{margin:0 0 8px;font-size:23px}h3{margin:0 0 8px;font-size:19px}p{line-height:1.5}.muted{color:var(--muted)}
-.card{background:#151d31f2;border:1px solid var(--border);border-radius:24px;padding:22px;box-shadow:0 18px 50px #0004}
-label{display:block;color:#dfe5ef;font-size:14px;margin-bottom:16px}input{width:100%;margin-top:8px;padding:14px 15px;border:1px solid var(--border);border-radius:13px;background:#0f1628;color:var(--text);font-size:16px;outline:none}input:focus{border-color:#d8b36ab3}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}button{width:100%;border:0;border-radius:14px;padding:15px 18px;background:linear-gradient(135deg,var(--gold2),var(--gold));color:#17120a;font-weight:700;font-size:16px}
-.hidden{display:none}.title{display:flex;align-items:center;justify-content:space-between;gap:14px}.secondary{width:auto;padding:10px 14px;background:var(--card2);color:var(--text);border:1px solid var(--border);font-size:14px}
-.data{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:22px 0}.data>div{padding:13px;border-radius:14px;background:#10182b;border:1px solid var(--border)}.data span{display:block;color:var(--muted);font-size:11px;margin-bottom:5px}.data strong{font-size:14px;overflow-wrap:anywhere}
-.coming{text-align:center;padding:28px 12px 12px;border-top:1px solid var(--border)}.sun{font-size:42px;color:var(--gold2);margin-bottom:10px}footer{text-align:center;color:#7f8ba0;font-size:12px;padding:22px 0 4px}
-@media(max-width:520px){.grid,.data{grid-template-columns:1fr}}
+.app{width:min(760px,100%);margin:auto;padding:24px 16px 40px}.hero{display:flex;align-items:center;gap:14px;padding:12px 4px 24px}.mark{width:48px;height:48px;display:grid;place-items:center;border:1px solid #8e7444;border-radius:16px;color:var(--gold2);font-size:25px;background:#d8b36a14}
+h1{margin:0 0 4px;font-size:27px}h2{margin:0 0 8px;font-size:23px}h3{margin:0 0 8px;font-size:18px}p{line-height:1.5}.muted{color:var(--muted)}
+.card{background:var(--card);border:1px solid var(--border);border-radius:24px;padding:21px;box-shadow:0 18px 50px #0004;margin-bottom:14px}
+label{display:block;color:#dfe5ef;font-size:14px;margin-bottom:15px}input,select{width:100%;margin-top:8px;padding:13px 14px;border:1px solid var(--border);border-radius:13px;background:#0f1628;color:var(--text);font-size:16px;outline:none}input:focus,select:focus{border-color:#d8b36ab3}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+button{width:100%;border:0;border-radius:14px;padding:15px 18px;background:linear-gradient(135deg,var(--gold2),var(--gold));color:#17120a;font-weight:700;font-size:16px}.hidden{display:none}
+.title{display:flex;align-items:center;justify-content:space-between;gap:14px}.secondary{width:auto;padding:10px 14px;background:var(--card2);color:var(--text);border:1px solid var(--border);font-size:14px}
+.note{font-size:13px;color:var(--muted);padding:11px 13px;border-left:3px solid var(--gold);background:#d8b36a0b;border-radius:8px;margin:5px 0 16px}
+.data{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:18px 0}.data>div{padding:12px;border-radius:14px;background:#10182b;border:1px solid var(--border)}.data span{display:block;color:var(--muted);font-size:11px;margin-bottom:5px}.data strong{font-size:14px;overflow-wrap:anywhere}
+.section-title{margin:24px 0 12px;color:var(--gold2);font-size:15px;text-transform:uppercase;letter-spacing:.08em}.planet-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.planet{display:flex;justify-content:space-between;align-items:center;padding:11px 12px;border-radius:13px;background:#10182b;border:1px solid var(--border)}.planet .sym{font-size:19px;width:28px}.planet .pname{flex:1;font-size:14px}.planet .pos{font-weight:700;font-size:14px;text-align:right}.retro{color:var(--gold2);font-size:11px;margin-left:3px}
+.angles{display:grid;grid-template-columns:1fr 1fr;gap:10px}.angle{padding:14px;border-radius:15px;background:#10182b;border:1px solid var(--border)}.angle span{display:block;color:var(--muted);font-size:11px}.angle strong{display:block;margin-top:5px;font-size:18px}.aspects{display:grid;grid-template-columns:1fr;gap:8px}.aspect{display:flex;justify-content:space-between;padding:10px 12px;border-radius:12px;background:#10182b;border:1px solid var(--border);font-size:13px}.orb{color:var(--muted)}
+.status{text-align:center;color:var(--ok);font-size:13px;margin-top:12px}footer{text-align:center;color:#7f8ba0;font-size:12px;padding:18px 0 4px}
+@media(max-width:520px){.grid,.grid3,.data,.planet-grid,.angles{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <main class="app">
 <header class="hero"><div class="mark">✦</div><div><h1>Carta Natal Wal</h1><p class="muted">Tu espacio para crear y guardar cartas natales.</p></div></header>
-
 <section class="card" id="formCard">
-<h2>Nueva consulta</h2><p class="muted">Cargá los datos de nacimiento para comenzar.</p>
+<h2>Nueva consulta</h2><p class="muted">Cargá los datos de nacimiento para calcular la carta.</p>
 <form id="form">
 <label>Nombre<input id="name" required placeholder="Nombre y apellido"></label>
-<div class="grid">
-<label>Fecha de nacimiento<input id="date" type="date" required></label>
-<label>Hora<input id="time" type="time" required></label>
-</div>
-<label>Lugar de nacimiento<input id="place" required placeholder="Ciudad, provincia, país"></label>
-<button>Continuar</button>
-</form>
-</section>
-
-<section class="card hidden" id="result">
-<div class="title"><div><small class="muted">CONSULTA</small><h2 id="rname"></h2></div><button class="secondary" id="new">Nueva</button></div>
-<div class="data"><div><span>Fecha</span><strong id="rdate"></strong></div><div><span>Hora</span><strong id="rtime"></strong></div><div><span>Lugar</span><strong id="rplace"></strong></div></div>
-<div class="coming"><div class="sun">☉</div><h3>Base de la carta lista</h3><p class="muted">El próximo paso será incorporar el cálculo astronómico real: planetas, Ascendente, casas, aspectos y el gráfico.</p></div>
-</section>
-<footer>© Carta Natal Wal</footer>
-</main>
+<div class="grid"><label>Fecha de nacimiento<input id="date" type="date" required></label><label>Hora<input id="time" type="time" required></label></div>
+<label>Lugar de nacimiento<input id="place" required list="cities" placeholder="Ciudad, provincia, país"></label>
+<datalist id="cities"><option value="Córdoba, Argentina"></option><option value="Almafuerte, Córdoba, Argentina"></option><option value="Villa María, Córdoba, Argentina"></option><option value="Río Cuarto, Córdoba, Argentina"></option><option value="Buenos Aires, Argentina"></option><option value="Rosario, Santa Fe, Argentina"></option><option value="San Luis, Argentina"></option><option value="Mendoza, Argentina"></option><option value="Mar del Plata, Argentina"></option></datalist>
+<div class="grid3"><label>Latitud<input id="lat" type="number" step="0.0001" required value="-31.4167"></label><label>Longitud<input id="lon" type="number" step="0.0001" required value="-64.1833"></label><label>UTC<input id="tz" type="number" step="0.5" min="-12" max="14" required value="-3"></label></div>
+<div class="note">Para el Ascendente y las casas necesitamos latitud, longitud y huso horario. Las coordenadas se procesan en este dispositivo.</div>
+<button>Calcular carta natal</button>
+</form></section>
+<section class="card hidden" id="result"><div class="title"><div><small class="muted">CARTA NATAL</small><h2 id="rname"></h2></div><button class="secondary" id="new">Nueva</button></div>
+<div class="data"><div><span>Fecha</span><strong id="rdate"></strong></div><div><span>Hora local</span><strong id="rtime"></strong></div><div><span>Lugar</span><strong id="rplace"></strong></div></div><div id="calculation"></div><div class="status">Cálculo realizado en el navegador. No se envían los datos a un servidor.</div></section>
+<footer>© Carta Natal Wal</footer></main>
+<script src="https://cdn.jsdelivr.net/npm/astronomy-engine@2.1.19/astronomy.browser.min.js"></script>
 <script>
-const form=document.querySelector("#form"), formCard=document.querySelector("#formCard"), result=document.querySelector("#result");
-const fmt=v=>{if(!v)return"";const [y,m,d]=v.split("-");return d+"/"+m+"/"+y};
-form.addEventListener("submit",e=>{e.preventDefault();const d={name:name.value.trim(),date:date.value,time:time.value,place:place.value.trim()};localStorage.setItem("cartaNatalWal",JSON.stringify(d));rname.textContent=d.name;rdate.textContent=fmt(d.date);rtime.textContent=d.time;rplace.textContent=d.place;formCard.classList.add("hidden");result.classList.remove("hidden");scrollTo({top:0,behavior:"smooth"})});
-document.querySelector("#new").onclick=()=>{result.classList.add("hidden");formCard.classList.remove("hidden");form.reset();};
-const saved=localStorage.getItem("cartaNatalWal"); if(saved){const d=JSON.parse(saved);name.value=d.name||"";date.value=d.date||"";time.value=d.time||"";place.value=d.place||"";}
-</script>
-</body>
-</html>
+const $=id=>document.getElementById(id);const signs=["Aries","Tauro","Géminis","Cáncer","Leo","Virgo","Libra","Escorpio","Sagitario","Capricornio","Acuario","Piscis"];
+const bodies=[["Sun","☉","Sol"],["Moon","☽","Luna"],["Mercury","☿","Mercurio"],["Venus","♀","Venus"],["Mars","♂","Marte"],["Jupiter","♃","Júpiter"],["Saturn","♄","Saturno"],["Uranus","♅","Urano"],["Neptune","♆","Neptuno"],["Pluto","♇","Plutón"]];
+const cityCoords={"córdoba, argentina":[-31.4167,-64.1833,-3],"almafuerte, córdoba, argentina":[-32.1928,-64.255,-3],"villa maría, córdoba, argentina":[-32.4103,-63.2402,-3],"río cuarto, córdoba, argentina":[-33.1232,-64.3498,-3],"buenos aires, argentina":[-34.6037,-58.3816,-3],"rosario, santa fe, argentina":[-32.9442,-60.6505,-3],"san luis, argentina":[-33.3017,-66.3378,-3],"mendoza, argentina":[-32.8895,-68.8458,-3],"mar del plata, argentina":[-38.0055,-57.5426,-3]};
+const form=$("form"),formCard=$("formCard"),result=$("result");$("place").addEventListener("change",()=>{const c=cityCoords[$("place").value.trim().toLowerCase()];if(c){$("lat").value=c[0];$("lon").value=c[1];$("tz").value=c[2]}});
+function norm(x){x%=360;if(x<0)x+=360;return x}function signDeg(lon){lon=norm(lon);const i=Math.floor(lon/30),deg=lon-i*30;return{sign:signs[i],deg,lon}}function fmtPos(lon){const s=signDeg(lon),d=Math.floor(s.deg),m=Math.round((s.deg-d)*60);return s.sign+" "+d+"°"+String(m).padStart(2,"0")+"′"}
+function fmtDate(v){if(!v)return"";const[y,m,d]=v.split("-");return d+"/"+m+"/"+y}function parseUTC(dateStr,timeStr,tz){const[y,mo,d]=dateStr.split("-").map(Number),[h,mi]=timeStr.split(":").map(Number);return new Date(Date.UTC(y,mo-1,d,h,mi)-tz*3600000)}
+function obliquityDeg(date){const t=Astronomy.MakeTime(date).tt/36525;return 23.43929111-0.0130041667*t-0.000000164*t*t+0.0000005036*t*t*t}
+function ascendant(date,lat,lon){const lst=norm(Astronomy.SiderealTime(date)*15+lon),e=obliquityDeg(date)*Math.PI/180,p=lat*Math.PI/180,a=lst*Math.PI/180;let x=Math.atan2(Math.cos(a),-(Math.sin(a)*Math.cos(e)+Math.tan(p)*Math.sin(e)))*180/Math.PI;x=norm(x);if(x<180)x=norm(x+180);else x=norm(x-180);return x}
+function midheaven(date,lon){const lst=norm(Astronomy.SiderealTime(date)*15+lon),e=obliquityDeg(date)*Math.PI/180,a=lst*Math.PI/180;return norm(Math.atan2(Math.sin(a),Math.cos(a)*Math.cos(e))*180/Math.PI)}
+function planetLongitude(body,date,observer){const eq=Astronomy.Equator(body,date,observer,true,true),ec=Astronomy.Ecliptic(eq.vec);return norm(ec.elon)}
+function speed(body,date,observer){const before=new Date(date.getTime()-86400000),after=new Date(date.getTime()+86400000),a=planetLongitude(body,before,observer),b=planetLongitude(body,after,observer),delta=((b-a+540)%360)-180;return delta/2}
+function equalHouses(asc){return Array.from({length:12},(_,i)=>norm(asc+i*30))}function aspectName(a){return a===0?"Conjunción":a===60?"Sextil":a===90?"Cuadratura":a===120?"Trígono":"Oposición"}function angularDiff(a,b){let d=Math.abs(norm(a-b));return d>180?360-d:d}
+function renderCalc(data){const{positions,asc,mc,houses}=data;let html='<div class="section-title">Ángulos principales</div><div class="angles">';html+='<div class="angle"><span>Ascendente</span><strong>'+fmtPos(asc)+'</strong></div>';html+='<div class="angle"><span>Medio Cielo</span><strong>'+fmtPos(mc)+'</strong></div></div>';html+='<div class="section-title">Planetas — zodíaco tropical</div><div class="planet-grid">';positions.forEach(p=>{html+='<div class="planet"><span class="sym">'+p.sym+'</span><span class="pname">'+p.name+'</span><span class="pos">'+fmtPos(p.lon)+(p.retro?'<span class="retro">R</span>':'')+'</span></div>'});html+='</div><div class="section-title">Casas — iguales desde el Ascendente</div><div class="planet-grid">';houses.forEach((h,i)=>{html+='<div class="planet"><span class="pname">Casa '+(i+1)+'</span><span class="pos">'+fmtPos(h)+'</span></div>'});html+='</div>';const asp=[];for(let i=0;i<positions.length;i++)for(let j=i+1;j<positions.length;j++){const d=angularDiff(positions[i].lon,positions[j].lon);for(const a of[0,60,90,120,180]){const orb=Math.abs(d-a);if(orb<=6){asp.push({a:positions[i],b:positions[j],type:aspectName(a),orb});break}}}asp.sort((x,y)=>x.orb-y.orb);html+='<div class="section-title">Aspectos mayores</div><div class="aspects">';if(!asp.length)html+='<div class="aspect">No se encontraron aspectos dentro del orbe de 6°.</div>';else asp.forEach(x=>html+='<div class="aspect"><span>'+x.a.sym+' '+x.a.name+' — '+x.type+' — '+x.b.sym+' '+x.b.name+'</span><span class="orb">'+x.orb.toFixed(1)+'°</span></div>');html+='</div>';return html}
+form.addEventListener("submit",e=>{e.preventDefault();try{const d={name:$("name").value.trim(),date:$("date").value,time:$("time").value,place:$("place").value.trim(),lat:Number($("lat").value),lon:Number($("lon").value),tz:Number($("tz").value)};if(!Number.isFinite(d.lat)||!Number.isFinite(d.lon)||!Number.isFinite(d.tz))throw new Error("Revisá las coordenadas y el huso horario.");const utc=parseUTC(d.date,d.time,d.tz),observer=new Astronomy.Observer(d.lat,d.lon,0),positions=bodies.map(([body,sym,name])=>{const lon=planetLongitude(body,utc,observer);return{body,sym,name,lon,retro:speed(body,utc,observer)<0}}),asc=ascendant(utc,d.lat,d.lon),mc=midheaven(utc,d.lon),houses=equalHouses(asc);localStorage.setItem("cartaNatalWal",JSON.stringify(d));$("rname").textContent=d.name;$("rdate").textContent=fmtDate(d.date);$("rtime").textContent=d.time;$("rplace").textContent=d.place;$("calculation").innerHTML=renderCalc({positions,asc,mc,houses});formCard.classList.add("hidden");result.classList.remove("hidden");scrollTo({top:0,behavior:"smooth"})}catch(err){alert("No pude calcular la carta todavía. "+err.message)}});
+$("new").onclick=()=>{result.classList.add("hidden");formCard.classList.remove("hidden");scrollTo({top:0,behavior:"smooth"})};const saved=localStorage.getItem("cartaNatalWal");if(saved){try{const d=JSON.parse(saved);$("name").value=d.name||"";$("date").value=d.date||"";$("time").value=d.time||"";$("place").value=d.place||"";$("lat").value=d.lat??-31.4167;$("lon").value=d.lon??-64.1833;$("tz").value=d.tz??-3}catch(e){}}
+</script></body></html>
